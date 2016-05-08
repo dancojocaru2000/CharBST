@@ -37,22 +37,24 @@
 			this.inorderLabel = new Telerik.WinControls.UI.RadLabelElement();
 			this.commandBarSeparator6 = new Telerik.WinControls.UI.CommandBarSeparator();
 			this.postorderLabel = new Telerik.WinControls.UI.RadLabelElement();
-			this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+			this.MissionControl = new Telerik.WinControls.UI.RadGroupBox();
 			this.radGroupBox3 = new Telerik.WinControls.UI.RadGroupBox();
 			this.radButton2 = new Telerik.WinControls.UI.RadButton();
 			this.radGroupBox2 = new Telerik.WinControls.UI.RadGroupBox();
 			this.radButton1 = new Telerik.WinControls.UI.RadButton();
 			this.radTextBox1 = new Telerik.WinControls.UI.RadTextBox();
 			this.visualStudio2012DarkTheme1 = new Telerik.WinControls.Themes.VisualStudio2012DarkTheme();
-			this.radTreeView1 = new Telerik.WinControls.UI.RadTreeView();
-			this.radGroupBox4 = new Telerik.WinControls.UI.RadGroupBox();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.radCheckBox1 = new Telerik.WinControls.UI.RadCheckBox();
 			this.radCheckBox2 = new Telerik.WinControls.UI.RadCheckBox();
 			this.radCheckBox3 = new Telerik.WinControls.UI.RadCheckBox();
 			this.radCheckBox4 = new Telerik.WinControls.UI.RadCheckBox();
+			this.radGroupBox4 = new Telerik.WinControls.UI.RadGroupBox();
+			this.commandBarSeparator7 = new Telerik.WinControls.UI.CommandBarSeparator();
+			this.radButtonElement1 = new Telerik.WinControls.UI.RadButtonElement();
 			((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
-			this.radGroupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.MissionControl)).BeginInit();
+			this.MissionControl.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.radGroupBox3)).BeginInit();
 			this.radGroupBox3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.radButton2)).BeginInit();
@@ -60,13 +62,13 @@
 			this.radGroupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.radTextBox1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.radTreeView1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.radGroupBox4)).BeginInit();
-			this.radGroupBox4.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.radCheckBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.radCheckBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.radCheckBox3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.radCheckBox4)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.radGroupBox4)).BeginInit();
+			this.radGroupBox4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -85,11 +87,13 @@
             this.commandBarSeparator5,
             this.inorderLabel,
             this.commandBarSeparator6,
-            this.postorderLabel});
+            this.postorderLabel,
+            this.commandBarSeparator7,
+            this.radButtonElement1});
 			this.radStatusStrip1.LayoutStyle = Telerik.WinControls.UI.RadStatusBarLayoutStyle.Overflow;
-			this.radStatusStrip1.Location = new System.Drawing.Point(0, 343);
+			this.radStatusStrip1.Location = new System.Drawing.Point(0, 325);
 			this.radStatusStrip1.Name = "radStatusStrip1";
-			this.radStatusStrip1.Size = new System.Drawing.Size(807, 26);
+			this.radStatusStrip1.Size = new System.Drawing.Size(807, 44);
 			this.radStatusStrip1.TabIndex = 0;
 			this.radStatusStrip1.Text = "radStatusStrip1";
 			// 
@@ -178,19 +182,19 @@
 			this.postorderLabel.Text = "Postorder tree: ";
 			this.postorderLabel.TextWrap = true;
 			// 
-			// radGroupBox1
+			// MissionControl
 			// 
-			this.radGroupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-			this.radGroupBox1.Controls.Add(this.radGroupBox4);
-			this.radGroupBox1.Controls.Add(this.radGroupBox3);
-			this.radGroupBox1.Controls.Add(this.radGroupBox2);
-			this.radGroupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.radGroupBox1.HeaderText = "Mission Control";
-			this.radGroupBox1.Location = new System.Drawing.Point(0, 0);
-			this.radGroupBox1.Name = "radGroupBox1";
-			this.radGroupBox1.Size = new System.Drawing.Size(807, 113);
-			this.radGroupBox1.TabIndex = 1;
-			this.radGroupBox1.Text = "Mission Control";
+			this.MissionControl.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+			this.MissionControl.Controls.Add(this.radGroupBox4);
+			this.MissionControl.Controls.Add(this.radGroupBox3);
+			this.MissionControl.Controls.Add(this.radGroupBox2);
+			this.MissionControl.Dock = System.Windows.Forms.DockStyle.Top;
+			this.MissionControl.HeaderText = "Mission Control";
+			this.MissionControl.Location = new System.Drawing.Point(0, 0);
+			this.MissionControl.Name = "MissionControl";
+			this.MissionControl.Size = new System.Drawing.Size(807, 113);
+			this.MissionControl.TabIndex = 1;
+			this.MissionControl.Text = "Mission Control";
 			// 
 			// radGroupBox3
 			// 
@@ -246,18 +250,66 @@
 			this.radTextBox1.Size = new System.Drawing.Size(196, 20);
 			this.radTextBox1.TabIndex = 0;
 			// 
-			// radTreeView1
+			// pictureBox1
 			// 
-			this.radTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.radTreeView1.LineColor = System.Drawing.Color.White;
-			this.radTreeView1.LineStyle = Telerik.WinControls.UI.TreeLineStyle.Solid;
-			this.radTreeView1.Location = new System.Drawing.Point(0, 113);
-			this.radTreeView1.Name = "radTreeView1";
-			this.radTreeView1.ShowLines = true;
-			this.radTreeView1.Size = new System.Drawing.Size(807, 230);
-			this.radTreeView1.SpacingBetweenNodes = -1;
-			this.radTreeView1.TabIndex = 2;
-			this.radTreeView1.Text = "radTreeView1";
+			this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pictureBox1.Location = new System.Drawing.Point(0, 113);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(807, 212);
+			this.pictureBox1.TabIndex = 2;
+			this.pictureBox1.TabStop = false;
+			this.pictureBox1.SizeChanged += new System.EventHandler(this.pictureBox1_SizeChanged);
+			// 
+			// radCheckBox1
+			// 
+			this.radCheckBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.radCheckBox1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.radCheckBox1.Enabled = false;
+			this.radCheckBox1.Location = new System.Drawing.Point(2, 18);
+			this.radCheckBox1.Name = "radCheckBox1";
+			this.radCheckBox1.Size = new System.Drawing.Size(134, 18);
+			this.radCheckBox1.TabIndex = 0;
+			this.radCheckBox1.Text = "Expand root";
+			this.radCheckBox1.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
+			this.radCheckBox1.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.radCheckBox1_ToggleStateChanged);
+			// 
+			// radCheckBox2
+			// 
+			this.radCheckBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.radCheckBox2.Dock = System.Windows.Forms.DockStyle.Top;
+			this.radCheckBox2.Enabled = false;
+			this.radCheckBox2.Location = new System.Drawing.Point(2, 36);
+			this.radCheckBox2.Name = "radCheckBox2";
+			this.radCheckBox2.Size = new System.Drawing.Size(134, 18);
+			this.radCheckBox2.TabIndex = 1;
+			this.radCheckBox2.Text = "Expand left nodes";
+			this.radCheckBox2.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
+			this.radCheckBox2.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.radCheckBox2_ToggleStateChanged);
+			// 
+			// radCheckBox3
+			// 
+			this.radCheckBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.radCheckBox3.Dock = System.Windows.Forms.DockStyle.Top;
+			this.radCheckBox3.Enabled = false;
+			this.radCheckBox3.Location = new System.Drawing.Point(2, 54);
+			this.radCheckBox3.Name = "radCheckBox3";
+			this.radCheckBox3.Size = new System.Drawing.Size(134, 18);
+			this.radCheckBox3.TabIndex = 2;
+			this.radCheckBox3.Text = "Expand right nodes";
+			this.radCheckBox3.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
+			this.radCheckBox3.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.radCheckBox3_ToggleStateChanged);
+			// 
+			// radCheckBox4
+			// 
+			this.radCheckBox4.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.radCheckBox4.Dock = System.Windows.Forms.DockStyle.Top;
+			this.radCheckBox4.Location = new System.Drawing.Point(2, 72);
+			this.radCheckBox4.Name = "radCheckBox4";
+			this.radCheckBox4.Size = new System.Drawing.Size(134, 18);
+			this.radCheckBox4.TabIndex = 3;
+			this.radCheckBox4.Text = "Expand all";
+			this.radCheckBox4.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
+			this.radCheckBox4.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.radCheckBox4_ToggleStateChanged);
 			// 
 			// radGroupBox4
 			// 
@@ -273,75 +325,39 @@
 			this.radGroupBox4.Size = new System.Drawing.Size(138, 93);
 			this.radGroupBox4.TabIndex = 3;
 			this.radGroupBox4.Text = "Treeview management";
+			this.radGroupBox4.Visible = false;
 			// 
-			// radCheckBox1
+			// commandBarSeparator7
 			// 
-			this.radCheckBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.radCheckBox1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.radCheckBox1.Enabled = false;
-			this.radCheckBox1.Location = new System.Drawing.Point(2, 18);
-			this.radCheckBox1.Name = "radCheckBox1";
-			this.radCheckBox1.Size = new System.Drawing.Size(81, 18);
-			this.radCheckBox1.TabIndex = 0;
-			this.radCheckBox1.Text = "Expand root";
-			this.radCheckBox1.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
-			this.radCheckBox1.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.radCheckBox1_ToggleStateChanged);
+			this.commandBarSeparator7.Name = "commandBarSeparator7";
+			this.radStatusStrip1.SetSpring(this.commandBarSeparator7, false);
+			this.commandBarSeparator7.Text = "";
+			this.commandBarSeparator7.VisibleInOverflowMenu = false;
 			// 
-			// radCheckBox2
+			// radButtonElement1
 			// 
-			this.radCheckBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.radCheckBox2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.radCheckBox2.Enabled = false;
-			this.radCheckBox2.Location = new System.Drawing.Point(2, 36);
-			this.radCheckBox2.Name = "radCheckBox2";
-			this.radCheckBox2.Size = new System.Drawing.Size(109, 18);
-			this.radCheckBox2.TabIndex = 1;
-			this.radCheckBox2.Text = "Expand left nodes";
-			this.radCheckBox2.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
-			this.radCheckBox2.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.radCheckBox2_ToggleStateChanged);
-			// 
-			// radCheckBox3
-			// 
-			this.radCheckBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.radCheckBox3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.radCheckBox3.Enabled = false;
-			this.radCheckBox3.Location = new System.Drawing.Point(2, 54);
-			this.radCheckBox3.Name = "radCheckBox3";
-			this.radCheckBox3.Size = new System.Drawing.Size(117, 18);
-			this.radCheckBox3.TabIndex = 2;
-			this.radCheckBox3.Text = "Expand right nodes";
-			this.radCheckBox3.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
-			this.radCheckBox3.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.radCheckBox3_ToggleStateChanged);
-			// 
-			// radCheckBox4
-			// 
-			this.radCheckBox4.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.radCheckBox4.Dock = System.Windows.Forms.DockStyle.Top;
-			this.radCheckBox4.Location = new System.Drawing.Point(2, 72);
-			this.radCheckBox4.Name = "radCheckBox4";
-			this.radCheckBox4.Size = new System.Drawing.Size(71, 18);
-			this.radCheckBox4.TabIndex = 3;
-			this.radCheckBox4.Text = "Expand all";
-			this.radCheckBox4.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
-			this.radCheckBox4.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.radCheckBox4_ToggleStateChanged);
+			this.radButtonElement1.Name = "radButtonElement1";
+			this.radStatusStrip1.SetSpring(this.radButtonElement1, false);
+			this.radButtonElement1.Text = "Hide Mission Control";
+			this.radButtonElement1.Click += new System.EventHandler(this.radButtonElement1_Click);
 			// 
 			// RadForm1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(807, 369);
-			this.Controls.Add(this.radTreeView1);
-			this.Controls.Add(this.radGroupBox1);
+			this.Controls.Add(this.pictureBox1);
+			this.Controls.Add(this.MissionControl);
 			this.Controls.Add(this.radStatusStrip1);
 			this.Name = "RadForm1";
 			// 
 			// 
 			// 
 			this.RootElement.ApplyShapeToControl = true;
-			this.Text = "RadForm1";
+			this.Text = "Binary Search Tree GUI";
 			((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
-			this.radGroupBox1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.MissionControl)).EndInit();
+			this.MissionControl.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.radGroupBox3)).EndInit();
 			this.radGroupBox3.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.radButton2)).EndInit();
@@ -350,14 +366,14 @@
 			this.radGroupBox2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.radTextBox1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.radTreeView1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.radGroupBox4)).EndInit();
-			this.radGroupBox4.ResumeLayout(false);
-			this.radGroupBox4.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.radCheckBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.radCheckBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.radCheckBox3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.radCheckBox4)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.radGroupBox4)).EndInit();
+			this.radGroupBox4.ResumeLayout(false);
+			this.radGroupBox4.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -379,18 +395,20 @@
 		private Telerik.WinControls.UI.RadLabelElement inorderLabel;
 		private Telerik.WinControls.UI.CommandBarSeparator commandBarSeparator6;
 		private Telerik.WinControls.UI.RadLabelElement postorderLabel;
-		private Telerik.WinControls.UI.RadGroupBox radGroupBox1;
+		private Telerik.WinControls.UI.RadGroupBox MissionControl;
 		private Telerik.WinControls.UI.RadGroupBox radGroupBox2;
 		private Telerik.WinControls.UI.RadButton radButton1;
 		private Telerik.WinControls.UI.RadTextBox radTextBox1;
 		private Telerik.WinControls.Themes.VisualStudio2012DarkTheme visualStudio2012DarkTheme1;
-		private Telerik.WinControls.UI.RadTreeView radTreeView1;
 		private Telerik.WinControls.UI.RadGroupBox radGroupBox3;
 		private Telerik.WinControls.UI.RadButton radButton2;
+		private System.Windows.Forms.PictureBox pictureBox1;
 		private Telerik.WinControls.UI.RadGroupBox radGroupBox4;
 		private Telerik.WinControls.UI.RadCheckBox radCheckBox4;
 		private Telerik.WinControls.UI.RadCheckBox radCheckBox3;
 		private Telerik.WinControls.UI.RadCheckBox radCheckBox2;
 		private Telerik.WinControls.UI.RadCheckBox radCheckBox1;
+		private Telerik.WinControls.UI.CommandBarSeparator commandBarSeparator7;
+		private Telerik.WinControls.UI.RadButtonElement radButtonElement1;
 	}
 }

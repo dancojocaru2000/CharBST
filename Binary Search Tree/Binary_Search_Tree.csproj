@@ -66,6 +66,9 @@
       <HintPath>..\lib\RCWF\2016.2.503.40.Trial\TelerikCommon.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="TreeGenerator">
+      <HintPath>..\..\..\..\..\Desktop\TreeGenerator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RadForm1.cs">

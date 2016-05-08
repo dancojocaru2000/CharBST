@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
+using TreeGenerator;
 
 namespace Binary_Search_Tree {
 	public partial class RadForm1 : Telerik.WinControls.UI.RadForm {
@@ -10,9 +12,36 @@ namespace Binary_Search_Tree {
 			InitializeComponent();
 		}
 
+		TreeGenerator.TreeData.TreeDataTableDataTable dtTree;
+
+		public void GraphicTreeConstructorWorker(BinaryTreeNode worker, int position = 1, int state = 0) {
+			if (state == 0) dtTree.AddTreeDataTableRow(position.ToString(), "", string.Format("Root: {0}", worker.Value), "");
+			else if (state == 1) dtTree.AddTreeDataTableRow(position.ToString(), (position / 2).ToString(), string.Format("Right node: {0}", worker.Value), "");
+			else dtTree.AddTreeDataTableRow(position.ToString(), (position / 2).ToString(), string.Format("Left node: {0}", worker.Value), "");
+			if (worker.left != null) GraphicTreeConstructorWorker(worker.left, position * 2, -1);
+			if (worker.right != null) GraphicTreeConstructorWorker(worker.right, position * 2 + 1, 1);
+		}
+
+		public void GraphicTreeConstructor() {
+			if (tree.root != null) {
+				pictureBox1.Visible = true;
+				dtTree = new TreeData.TreeDataTableDataTable();
+				GraphicTreeConstructorWorker(tree.root);
+				var myTree = new TreeBuilder(dtTree);
+				myTree.BGColor = myTree.BoxFillColor = Color.Black;
+				myTree.FontColor = Color.Yellow;
+				myTree.LineColor = Color.LightBlue;
+				//myTree.HorizontalSpace = myTree.VerticalSpace = 10;
+				pictureBox1.Image = Image.FromStream(myTree.GenerateTree(pictureBox1.Width, pictureBox1.Height, "1", System.Drawing.Imaging.ImageFormat.Bmp));
+			}
+			else {
+				pictureBox1.Visible = false;
+			}
+		}
+
 		BinarySearchTree tree = new BinarySearchTree();
 
-		public static RadTreeNode TreeUpdate(ref BinaryTreeNode position, int state, bool ExpandRoot, bool ExpandLeftNodes, bool ExpandRightNodes) {
+		/*public static RadTreeNode TreeUpdate(ref BinaryTreeNode position, int state, bool ExpandRoot, bool ExpandLeftNodes, bool ExpandRightNodes) {
 			RadTreeNode node;
 			if (state == 0) {
 				node = new RadTreeNode(string.Format("Root: {0}", position.Value));
@@ -27,7 +56,7 @@ namespace Binary_Search_Tree {
 			if (state == 1) if (ExpandRightNodes) node.Expand();
 			if (state == -1) if (ExpandLeftNodes) node.Expand();
 			return node;
-		}
+		}*/
 
 		public void UIUpdate(bool ExpandRoot = true, bool ExpandLeftNodes = true, bool ExpandRightNodes = true) {
 			elementsLabel.Text = string.Format("Elements: {0}", tree.Elements.ToString());
@@ -37,8 +66,9 @@ namespace Binary_Search_Tree {
 			preorderLabel.Text = "Preorder tree: " + tree.PreorderValues;
 			inorderLabel.Text = "Inorder tree: " + tree.InorderValues;
 			postorderLabel.Text = "Postorder tree: " + tree.PostorderValues;
-			radTreeView1.Nodes.Clear();
-			if (tree.root != null) radTreeView1.Nodes.Add(TreeUpdate(ref tree.root, 0, ExpandRoot, ExpandLeftNodes, ExpandRightNodes));
+			GraphicTreeConstructor();
+			//radTreeView1.Nodes.Clear();
+			//if (tree.root != null) radTreeView1.Nodes.Add(TreeUpdate(ref tree.root, 0, ExpandRoot, ExpandLeftNodes, ExpandRightNodes));
 		}
 
 		private void radButton1_Click(object sender, EventArgs e) {
@@ -86,6 +116,19 @@ namespace Binary_Search_Tree {
 		private void radCheckBox2_ToggleStateChanged(object sender, StateChangedEventArgs args) {
 			UIUpdate(radCheckBox1.Checked, radCheckBox2.Checked, radCheckBox3.Checked);
 			if (radCheckBox2.Checked == true && radCheckBox2.Checked == radCheckBox3.Checked) radCheckBox4.Checked = true;
+		}
+
+		private void pictureBox1_SizeChanged(object sender, EventArgs e) {
+			GraphicTreeConstructor();
+		}
+
+		private void radButtonElement1_Click(object sender, EventArgs e) {
+			MissionControl.Visible = !MissionControl.Visible;
+			if (MissionControl.Visible) {
+				radButtonElement1.Text = "Hide Mission Control";
+			} else {
+				radButtonElement1.Text = "Show Mission Control";
+			}
 		}
 	}
 }

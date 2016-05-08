@@ -23,3 +23,4 @@ C:\Users\danco\documents\visual studio 2015\Projects\Binary Search Tree\Binary S
 C:\Users\danco\documents\visual studio 2015\Projects\Binary Search Tree\Binary Search Tree\bin\Debug\Telerik.WinControls.Themes.Windows7.dll
 C:\Users\danco\documents\visual studio 2015\Projects\Binary Search Tree\Binary Search Tree\bin\Debug\Telerik.WinControls.Themes.HighContrastBlack.dll
 C:\Users\danco\documents\visual studio 2015\Projects\Binary Search Tree\Binary Search Tree\bin\Debug\Telerik.WinControls.Themes.Office2013Dark.dll
+C:\Users\danco\documents\visual studio 2015\Projects\Binary Search Tree\Binary Search Tree\bin\Debug\TreeGenerator.dll
