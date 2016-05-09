@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
@@ -32,7 +33,12 @@ namespace Binary_Search_Tree {
 				myTree.FontColor = Color.Yellow;
 				myTree.LineColor = Color.LightBlue;
 				//myTree.HorizontalSpace = myTree.VerticalSpace = 10;
-				pictureBox1.Image = Image.FromStream(myTree.GenerateTree(pictureBox1.Width, pictureBox1.Height, "1", System.Drawing.Imaging.ImageFormat.Bmp));
+				if (!FullSize) pictureBox1.Image = Image.FromStream(myTree.GenerateTree(pictureBox1.Width, pictureBox1.Height, "1", System.Drawing.Imaging.ImageFormat.Bmp));
+				else {
+					pictureBox1.Image = Image.FromStream(myTree.GenerateTree("1", System.Drawing.Imaging.ImageFormat.Bmp));
+					pictureBox1.Width = pictureBox1.Image.Width;
+					pictureBox1.Height = pictureBox1.Image.Height;
+				}
 			}
 			else {
 				pictureBox1.Visible = false;
@@ -128,6 +134,59 @@ namespace Binary_Search_Tree {
 				radButtonElement1.Text = "Hide Mission Control";
 			} else {
 				radButtonElement1.Text = "Show Mission Control";
+			}
+		}
+
+		public bool FullSize = false;
+
+		private void radRadioButton2_ToggleStateChanged(object sender, StateChangedEventArgs args) {
+			if (radRadioButton2.IsChecked == true) {
+				radRadioButton1.IsChecked = false;
+				FullSize = true;
+				pictureBox1.Dock = DockStyle.None;
+				pictureBox1.Left = 0;
+				pictureBox1.Top = 0;
+				UIUpdate();
+			}
+		}
+
+		private void radRadioButton1_ToggleStateChanged(object sender, StateChangedEventArgs args) {
+			if (radRadioButton1.IsChecked == true) {
+				radRadioButton2.IsChecked = false;
+				FullSize = !true;
+				pictureBox1.Dock = DockStyle.Fill;
+				UIUpdate();
+			}
+		}
+
+		private void radButton3_Click(object sender, EventArgs e) {
+			dtTree = new TreeData.TreeDataTableDataTable();
+			GraphicTreeConstructorWorker(tree.root);
+			var myTree = new TreeBuilder(dtTree);
+			myTree.BGColor = myTree.BoxFillColor = Color.Black;
+			myTree.FontColor = Color.Yellow;
+			myTree.LineColor = Color.LightBlue;
+			var image = Image.FromStream(myTree.GenerateTree("1", System.Drawing.Imaging.ImageFormat.Bmp));
+			var x = saveFileDialog1.ShowDialog();
+			if (x == DialogResult.OK) {
+				if (saveFileDialog1.FileName.EndsWith(".bmp"))
+					image.Save(saveFileDialog1.FileName);
+				else if (saveFileDialog1.FileName.EndsWith(".png")) {
+					var stream = new System.IO.MemoryStream();
+					image.Save(stream, ImageFormat.Png);
+					stream.Position = 0;
+					var fileStream = System.IO.File.Create(saveFileDialog1.FileName);
+					stream.Seek(0, System.IO.SeekOrigin.Begin);
+					stream.CopyTo(fileStream);
+				}
+				else if (saveFileDialog1.FileName.EndsWith(".jpg")) {
+					var stream = new System.IO.MemoryStream();
+					image.Save(stream, ImageFormat.Jpeg);
+					stream.Position = 0;
+					var fileStream = System.IO.File.Create(saveFileDialog1.FileName);
+					stream.Seek(0, System.IO.SeekOrigin.Begin);
+					stream.CopyTo(fileStream);
+				}
 			}
 		}
 	}
