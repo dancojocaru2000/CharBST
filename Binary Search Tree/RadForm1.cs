@@ -81,8 +81,8 @@ namespace Binary_Search_Tree {
 			while (radTextBox1.Text != string.Empty) {
 				tree.AddValue(radTextBox1.Text[0]);
 				radTextBox1.Text = radTextBox1.Text.Remove(0, 1);
-				UIUpdate(radCheckBox1.Checked, radCheckBox2.Checked, radCheckBox3.Checked);
 			}
+			UIUpdate(radCheckBox1.Checked, radCheckBox2.Checked, radCheckBox3.Checked);
 		}
 
 		private void radButton2_Click(object sender, EventArgs e) {
