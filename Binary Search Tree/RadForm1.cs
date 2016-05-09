@@ -15,7 +15,7 @@ namespace Binary_Search_Tree {
 
 		TreeGenerator.TreeData.TreeDataTableDataTable dtTree;
 
-		public void GraphicTreeConstructorWorker(BinaryTreeNode worker, int position = 1, int state = 0) {
+		public void GraphicTreeConstructorWorker(BinaryTreeNode worker, ulong position = 1, int state = 0) {
 			if (state == 0) dtTree.AddTreeDataTableRow(position.ToString(), "", string.Format("Root: {0}", worker.Value), "");
 			else if (state == 1) dtTree.AddTreeDataTableRow(position.ToString(), (position / 2).ToString(), string.Format("Right node: {0}", worker.Value), "");
 			else dtTree.AddTreeDataTableRow(position.ToString(), (position / 2).ToString(), string.Format("Left node: {0}", worker.Value), "");
@@ -77,12 +77,16 @@ namespace Binary_Search_Tree {
 			//if (tree.root != null) radTreeView1.Nodes.Add(TreeUpdate(ref tree.root, 0, ExpandRoot, ExpandLeftNodes, ExpandRightNodes));
 		}
 
-		private void radButton1_Click(object sender, EventArgs e) {
+		private void add() {
 			while (radTextBox1.Text != string.Empty) {
-				tree.AddValue(radTextBox1.Text[0]);
+				if ((radTextBox1.Text[0] >= 'A' && radTextBox1.Text[0] <= 'Z') || (radTextBox1.Text[0] >= 'a' && radTextBox1.Text[0] <= 'z') || (radTextBox1.Text[0] >= '0' && radTextBox1.Text[0] <= '9')) tree.AddValue(radTextBox1.Text[0]);
 				radTextBox1.Text = radTextBox1.Text.Remove(0, 1);
 			}
 			UIUpdate(radCheckBox1.Checked, radCheckBox2.Checked, radCheckBox3.Checked);
+		}
+
+		private void radButton1_Click(object sender, EventArgs e) {
+			add();
 		}
 
 		private void radButton2_Click(object sender, EventArgs e) {
@@ -187,6 +191,12 @@ namespace Binary_Search_Tree {
 					stream.Seek(0, System.IO.SeekOrigin.Begin);
 					stream.CopyTo(fileStream);
 				}
+			}
+		}
+
+		private void radTextBox1_KeyUp(object sender, KeyEventArgs e) {
+			if (e.KeyCode == Keys.Enter) {
+				add();
 			}
 		}
 	}

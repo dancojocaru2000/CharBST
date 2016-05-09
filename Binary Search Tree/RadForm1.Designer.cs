@@ -391,6 +391,7 @@
 			this.radTextBox1.NullText = "Insert Characters Here";
 			this.radTextBox1.Size = new System.Drawing.Size(196, 20);
 			this.radTextBox1.TabIndex = 0;
+			this.radTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.radTextBox1_KeyUp);
 			// 
 			// pictureBox1
 			// 
