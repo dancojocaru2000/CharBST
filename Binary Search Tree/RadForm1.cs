@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Numerics;
 using System.Windows.Forms;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
@@ -15,19 +16,28 @@ namespace Binary_Search_Tree {
 
 		TreeGenerator.TreeData.TreeDataTableDataTable dtTree;
 
-		public void GraphicTreeConstructorWorker(BinaryTreeNode worker, ulong position = 1, int state = 0) {
+		public void GraphicTreeConstructorWorker(BinaryTreeNode worker, BigInteger position, int state = 0) {
 			if (state == 0) dtTree.AddTreeDataTableRow(position.ToString(), "", string.Format("Root: {0}", worker.Value), "");
 			else if (state == 1) dtTree.AddTreeDataTableRow(position.ToString(), (position / 2).ToString(), string.Format("Right node: {0}", worker.Value), "");
 			else dtTree.AddTreeDataTableRow(position.ToString(), (position / 2).ToString(), string.Format("Left node: {0}", worker.Value), "");
-			if (worker.left != null) GraphicTreeConstructorWorker(worker.left, position * 2, -1);
-			if (worker.right != null) GraphicTreeConstructorWorker(worker.right, position * 2 + 1, 1);
+			if (worker.left != null && worker.right != null) {
+				GraphicTreeConstructorWorker(worker.left, position * 2, -1);
+				GraphicTreeConstructorWorker(worker.right, position * 2 + 1, 1);
+			}
+			else if (worker.left == null && worker.right == null) ;
+			else {
+				if (worker.left == null) dtTree.AddTreeDataTableRow((position * 2).ToString(), position.ToString(), "", "");
+				else GraphicTreeConstructorWorker(worker.left, position * 2, -1);
+				if (worker.right == null) dtTree.AddTreeDataTableRow((position * 2 + 1).ToString(), position.ToString(), "", "");
+				else GraphicTreeConstructorWorker(worker.right, position * 2 + 1, 1);
+			}
 		}
 
 		public void GraphicTreeConstructor() {
 			if (tree.root != null) {
 				pictureBox1.Visible = true;
 				dtTree = new TreeData.TreeDataTableDataTable();
-				GraphicTreeConstructorWorker(tree.root);
+				GraphicTreeConstructorWorker(tree.root, new BigInteger(1));
 				var myTree = new TreeBuilder(dtTree);
 				myTree.BGColor = myTree.BoxFillColor = Color.Black;
 				myTree.FontColor = Color.Yellow;
@@ -165,7 +175,7 @@ namespace Binary_Search_Tree {
 
 		private void radButton3_Click(object sender, EventArgs e) {
 			dtTree = new TreeData.TreeDataTableDataTable();
-			GraphicTreeConstructorWorker(tree.root);
+			GraphicTreeConstructorWorker(tree.root, new BigInteger(1));
 			var myTree = new TreeBuilder(dtTree);
 			myTree.BGColor = myTree.BoxFillColor = Color.Black;
 			myTree.FontColor = Color.Yellow;
